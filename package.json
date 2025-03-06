@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "postinstall": "npm run build",
+    "postinstall": "npm install -D typescript && npm run build",
     "build": "node --env-file .env --require esbuild-register scripts/build & npx tsc",
     "watch": "node --env-file .env --require esbuild-register scripts/watch",
     "biome:format": "yarn run biome format --write",
@@ -21,7 +21,6 @@
     "biome:lint": "yarn run biome lint",
     "test:node": "node --env-file .env --require esbuild-register src/node/__tests__/taskQueue.test"
   },
-  "dependencies": {},
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.13.9",
