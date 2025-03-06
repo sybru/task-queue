@@ -1,0 +1,31 @@
+{
+  "name": "task-queue",
+  "version": "0.5.0",
+  "license": "MIT",
+  "exports": {
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "default": "./dist/node/index.js"
+    },
+    "./web": {
+      "types": "./dist/web/index.d.ts",
+      "default": "./dist/web/index.js"
+    }
+  },
+  "scripts": {
+    "build": "node --env-file .env --require esbuild-register scripts/build & npx tsc",
+    "watch": "node --env-file .env --require esbuild-register scripts/watch",
+    "biome:format": "yarn run biome format --write",
+    "biome:import-sorting": "yarn run biome check --write --formatter-enabled=false --linter-enabled=false --organize-imports-enabled=true",
+    "biome:lint": "yarn run biome lint",
+    "test:node": "node --env-file .env --require esbuild-register src/node/__tests__/taskQueue.test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.13.9",
+    "esbuild": "^0.25.0",
+    "esbuild-register": "^3.6.0",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,6 @@
+__tests__
+@types
+dist
+node_modules
+.env*
+biome.js
