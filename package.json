@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "postinstall": "npm run build",
     "build": "node --env-file .env --require esbuild-register scripts/build & npx tsc",
     "watch": "node --env-file .env --require esbuild-register scripts/watch",
     "biome:format": "yarn run biome format --write",
